@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<!--        Nghĩa là nó chỉ chạy những @Test nằm trong class và được chỉ định cụ thể từng method-->
+<suite name="SuiteRunByMethod" verbose="1">
+    <test name="FirstTest">
+        <classes>
+            <class name="com.anhtester.firstpackage.FirstClass">
+                <methods>
+                <!--include : bao gồm-->
+                    <include name="firstTest"/>
+                <!-- exclude : loại bỏ-->
+                    <exclude name="secondTest"/>
+                </methods>
+            </class>
+            <class name="com.anhtester.firstpackage.SecondClass">
+                <methods>
+                    <include name="firstTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

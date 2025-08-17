@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<!--        Nghĩa là nó sẽ chạy tất cả các @Test nằm trong package chỉ định.-->
+<!--        LƯU Ý: nếu muốn chạy package con bên trong thì phải khai báo-->
+<suite name="SuiteRunByPackage" verbose="1">
+    <test name="FirstTest">
+        <packages>
+            <package name="com.anhtester.firstpackage"/>
+            <package name="com.anhtester.firstpackage.childpackage"/>
+            <package name="com.anhtester.secondpackage"/>
+            <package name="com.anhtester.thirdpackage"/>
+        </packages>
+    </test>
+</suite>

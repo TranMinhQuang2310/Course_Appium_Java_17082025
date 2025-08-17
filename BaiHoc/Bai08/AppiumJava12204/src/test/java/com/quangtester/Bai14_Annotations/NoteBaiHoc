@@ -1,0 +1,25 @@
+1. Xếp hạng các annotation (từ trên xuống dưới theo độ ưu tiên) :
+        @BeforeSuite  (Đầu tiên)
+        @BeforeTest
+        @BeforeClass
+        @BeforeGroups => chỉ đối với testcase nằm trong group nào đó
+        @BeforeMethod
+
+        @Test
+
+        @AfterMethod
+        @AfterGroups
+        @AfterClass
+        @AfterTest
+        @AfterSuite
+
+------------------------------------------------------------------------------
+Thứ tự chạy như sau:
+    ✔ Khi bắt đầu: Suite > Test > Group > Class > Method
+    ✔ Khi kết thúc: Method > Class > Group > Test > Suite
+
+@BeforeTest : mở app lên 1 lần => chạy hết 100 testcase => tắt app
+@BeforeMethod : mở app lên mỗi lần => chạy 1 testcase => tắt app luôn
+
+Luồng chạy hiện tại :
+    Chạy @BeforeSuite + @BeforeTest ở class BaseTest => Chạy @Test trong từng class => Chạy @AfterTest + @AfterSuite

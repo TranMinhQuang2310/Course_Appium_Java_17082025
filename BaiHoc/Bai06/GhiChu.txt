@@ -1,0 +1,10 @@
+1. Thứ tự chạy : 
+	- Ghi chú @Test đại diện cho 1 test case. Có @Test thì nút Run mới hiện để nhấn chạy.
+
+Giờ các bạn nhấn nút Run để chạy và xem kết quả thôi nào.
+
+	B1: Trình tự thì class "BaseTest" chạy trước và phần "@BeforeSuite" sẽ chạy đầu tiên, kiểm tra các HOST và PORT để buộc dừng nó trước khi khởi chạy. 
+		=> Khởi chạy Appium Server
+	B2 : Tiếp đến phần "@BeforeTest" sẽ chạy để khởi tạo driver appium và kết nối đến app trên thiết bị mobile chỉ định
+	B3 : Tiếp theo phần "@Test" tại class test cases "TaurusAppTest" sẽ chạy theo các bước automation đã khai báo
+	B4 : Cuối cùng thì phần "@AfterTest" sẽ chạy để tắt driver appium và đóng service appium server

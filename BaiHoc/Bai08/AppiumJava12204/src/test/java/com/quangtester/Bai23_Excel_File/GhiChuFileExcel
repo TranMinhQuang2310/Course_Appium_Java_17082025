@@ -1,0 +1,72 @@
+1. setExcelFile(String excelPath, String sheetName)
+    Mục đích: Thiết lập đường dẫn và chọn sheet trong tập tin Excel cần làm việc.
+    Hoạt động:
+        Kiểm tra xem tập tin Excel và sheet đã tồn tại chưa.
+        Đọc và load nội dung của sheet vào Workbook và Sheet.
+        Tạo một bản đồ (Map) các cột dựa vào hàng đầu tiên (header) của sheet, giúp truy cập dữ liệu dễ dàng hơn bằng tên cột.
+
+
+2. getRowData(int rowNum)
+    Mục đích: Lấy dữ liệu của một hàng cụ thể.
+    Hoạt động: Trả về đối tượng Row tại vị trí được truyền vào (rowNum).
+
+
+3. getExcelData(String excelPath, String sheetName)
+    Mục đích: Trả về toàn bộ dữ liệu trong sheet dưới dạng mảng 2 chiều (Object[][]).
+    Hoạt động:
+        Load workbook và sheet.
+        Đếm số dòng và cột dữ liệu.
+        Duyệt từng ô để lấy dữ liệu, chuyển đổi kiểu dữ liệu sang String hoặc các kiểu tương ứng, rồi đưa vào mảng 2 chiều.
+
+
+4. getDataHashTable(String excelPath, String sheetName, int startRow, int endRow)
+    Mục đích: Lấy dữ liệu từ một phạm vi các dòng cụ thể và trả về dưới dạng mảng 2 chiều chứa Hashtable (cặp key-value).
+    Hoạt động:
+        Duyệt từ startRow đến endRow, mỗi dòng dữ liệu được lưu vào một Hashtable.
+        Key trong Hashtable là tên cột, giá trị là dữ liệu từ từng ô tương ứng trong hàng đó.
+
+
+5. getRowContains(String sTestCaseName, int colNum)
+    Mục đích: Tìm vị trí dòng đầu tiên có chứa giá trị xác định trong một cột nhất định.
+    Hoạt động:
+        Duyệt tất cả các dòng, kiểm tra giá trị của ô tại cột (colNum) so sánh với chuỗi cần tìm.
+        Trả về vị trí của dòng chứa chuỗi đó.
+
+
+6. getRows()
+    Mục đích: Trả về tổng số dòng hiện có trong sheet.
+    Hoạt động: Gọi phương thức getLastRowNum() từ đối tượng Sheet.
+
+
+7. getColumns()
+    Mục đích: Trả về tổng số cột hiện có trong hàng đầu tiên của sheet.
+    Hoạt động: Dựa vào hàng đầu tiên (getRow(0)) và gọi getLastCellNum() để lấy số cột.
+
+
+8. getCellData(int rowNum, int colNum)
+    Mục đích: Lấy dữ liệu từ ô cụ thể theo vị trí dòng và cột.
+    Hoạt động:
+        Xác định kiểu dữ liệu của ô (STRING, NUMERIC, BOOLEAN, DATE, BLANK).
+        Chuyển đổi sang kiểu chuỗi và trả về giá trị.
+
+
+9. getCellData(int rowNum, String columnName) & getCellData(String columnName, int rowNum)
+    Mục đích: Lấy dữ liệu từ ô cụ thể theo tên cột và số dòng, tiện lợi khi thao tác với bảng dữ liệu có header.
+    Hoạt động:
+        Xác định số cột từ tên cột bằng Map columns.
+        Gọi lại hàm getCellData(int rowNum, int colNum) để lấy giá trị.
+
+10. setCellData(String text, int rowNumber, int colNumber)
+    Mục đích: Ghi dữ liệu vào một ô cụ thể trong Excel, định dạng ô tùy theo nội dung.
+    Hoạt động:
+        Tạo dòng và ô mới nếu chưa tồn tại.
+        Ghi dữ liệu vào ô.
+        Định dạng ô dựa theo nội dung (pass, fail) với màu sắc tương ứng.
+        Lưu lại nội dung vào file Excel.
+
+
+11. setCellData(String text, int rowNumber, String columnName)
+    Mục đích: Ghi dữ liệu vào ô Excel dựa trên số dòng và tên cột.
+    Hoạt động:
+        Chuyển tên cột sang chỉ số cột nhờ columns.
+        Thực hiện tương tự hàm setCellData theo số dòng và cột.

@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!--        Chạy tất cả các @Test nằm trong package hoặc class hoặc method cụ thể chỉ định-->
+<!--Quy định :-->
+<!--    <packages> và <classes> được khai báo cùng cấp, ngang hàng với nhau. -->
+<!--     <class> không phải khai báo dưới <packge>. -->
+<!--     Tuy nhiên khai báo <method> thì phải nằm dưới <class>-->
+
+<suite name="SuiteRunByCommon" verbose="1">
+    <test name="FirstTest">
+        <packages>
+            <package name="com.anhtester.firstpackage">
+            </package>
+        </packages>
+        <classes>
+            <class name="com.anhtester.secondpackage.FirstClass2">
+                <methods>
+                    <include name="firstTest"/>
+                </methods>
+            </class>
+            <class name="com.anhtester.thirdpackage.SecondClass3"/>
+        </classes>
+    </test>
+</suite>

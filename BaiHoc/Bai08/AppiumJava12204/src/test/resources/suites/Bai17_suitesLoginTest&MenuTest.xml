@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite Regression Test" verbose="1">
+    <test name="Login Taurus App Test">
+        <classes>
+            <class name="com.quangtester.Bai17_PageObjectModel.testcases.LoginTest"></class>
+            <class name="com.quangtester.Bai17_PageObjectModel.testcases.MenuTest"></class>
+        </classes>
+    </test>
+</suite>

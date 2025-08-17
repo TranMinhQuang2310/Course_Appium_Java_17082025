@@ -1,0 +1,73 @@
+<!--Mở 2 emulator lên + cài app Taurus trước khi khởi chạy-->
+<!--Mở file "config.properties" để cấu hình-->
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<!-- parallel="tests": chạy các module thẻ <test> song song.-->
+
+<!-- Bạn có thể thay đổi parallel thành:-->
+<!-- "tests" – chạy song song các <test> trong suite-->
+<!-- "methods" – chạy song song các method trong class-->
+<!--"class" – chạy song song các class-->
+
+<!--Ngoài ra bạn có thể sử dụng:-->
+<!-- thread-count="3": chạy tối đa 3 thread cùng lúc. Mục đích giới hạn số luồng chạy khi có quá nhiều test cases để không bị treo máy.-->
+<suite name="Suite Regression Test" verbose="1" parallel="tests">
+
+    <test name="Platform Android Test 1 - Taurus App">
+        <parameter name="platformName" value="Android"/>
+        <parameter name="platformVersion" value="15"/>
+        <parameter name="deviceName" value="Pixel 3a"/>
+        <parameter name="udid" value="emulator-5554"/> <!--Vào cmd gõ adb devices để xem-->
+        <parameter name="automationName" value="UiAutomator2"/>
+        <parameter name="appPackage" value="com.anhtester.mobile_app.taurus"/>
+        <parameter name="appActivity" value="com.anhtester.mobile_app.taurus.MainActivity"/>
+        <parameter name="noReset" value="false"/>
+        <parameter name="fullReset" value="false"/>
+        <parameter name="autoGrantPermissions" value="true"/>
+        <parameter name="host" value="127.0.0.1"/>
+        <parameter name="port" value="8000"/>
+        <parameter name="systemPort" value="8201"/> <!--Port dưới local , mặc định là 8000 -->
+        <classes>
+            <class name="com.quangtester.Bai20_Multiple_Platform.testcases.LoginTest"/>
+            <!--<class name="com.anhtester.Bai20_Multiple_Platform.testcases.MenuTest"/>-->
+        </classes>
+    </test>
+
+    <test name="Platform Android Test 2 - Taurus App">
+        <parameter name="platformName" value="Android"/>
+        <parameter name="platformVersion" value="15"/>
+        <parameter name="deviceName" value="Pixel_8"/>
+        <parameter name="udid" value="emulator-5556"/>  <!--Vào cmd gõ adb devices để xem-->
+        <parameter name="automationName" value="UiAutomator2"/>
+        <parameter name="appPackage" value="com.anhtester.mobile_app.taurus"/>
+        <parameter name="appActivity" value="com.anhtester.mobile_app.taurus.MainActivity"/>
+        <parameter name="noReset" value="false"/>
+        <parameter name="fullReset" value="false"/>
+        <parameter name="autoGrantPermissions" value="true"/>
+        <parameter name="host" value="127.0.0.1"/>
+        <parameter name="port" value="9000"/>
+        <parameter name="systemPort" value="8202"/> <!--Port dưới local , mặc định là 8000 -->
+        <classes>
+            <!--<class name="com.anhtester.Bai20_Multiple_Platform.testcases.LoginTest"/>-->
+            <class name="com.quangtester.Bai20_Multiple_Platform.testcases.MenuTest"/>
+        </classes>
+    </test>
+
+    <!--    <test name="Platform iOS Test - Taurus App">-->
+    <!--        <parameter name="platformName" value="iOS"/>-->
+    <!--        <parameter name="platformVersion" value="18"/>-->
+    <!--        <parameter name="deviceName" value="iPhone 14"/>-->
+    <!--        <parameter name="automationName" value="XCUITest"/>-->
+    <!--        <parameter name="bundleId" value=""/>-->
+    <!--        <parameter name="noReset" value="false"/>-->
+    <!--        <parameter name="fullReset" value="false"/>-->
+    <!--        <parameter name="autoGrantPermissions" value="true"/>-->
+    <!--        <parameter name="host" value="127.0.0.1"/>-->
+    <!--        <parameter name="port" value="6000"/>-->
+    <!--        <parameter name="wdaLocalPort" value="8101"/>-->
+    <!--        <classes>-->
+    <!--            <class name="com.anhtester.Bai20_Multiple_Platform.testcases.MenuTest"/>-->
+    <!--        </classes>-->
+    <!--    </test>-->
+
+</suite>

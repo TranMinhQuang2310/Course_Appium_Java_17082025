@@ -1,0 +1,8 @@
+Element cha : 
+	WebElement parentElement = driver.findElement(AppiumBy.accessibilityId("Displays all products of catalog"));
+
+VD1 : Lấy tất cả các element con 
+List<WebElement> childsElement = parentElement.findElements(AppiumBy.xpath("child::*"));
+
+VD2: Lấy element con thứ 2 theo element cha : 
+WebElement childsElement = parentElement.findElement((AppiumBy.xpath("child::android.view.ViewGroup[2]"));

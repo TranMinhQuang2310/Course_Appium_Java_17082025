@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite Regression Test" verbose="1">
+    <listeners>
+        <listener class-name="com.quangtester.Listeners.TestListener"/>
+    </listeners>
+
+    <test name="Test Listener TestNG">
+        <parameter name="platformName" value="Android"/>
+        <classes>
+            <class name="com.quangtester.Bai24_Listeners.DemoListeners"/>
+        </classes>
+    </test>
+</suite>

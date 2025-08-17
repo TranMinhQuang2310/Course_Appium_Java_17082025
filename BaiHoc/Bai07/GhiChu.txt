@@ -1,0 +1,37 @@
+1. Lệnh cài Appium Doctor : 
+	npm install appium-doctor -g
+=> Dùng để check xem môi trường cài thiếu phần nào không
+
+2. Lệnh cài : 
+	- Cài đặt Flutter Driver plugin cho Appium, cái này đặc biệt chuyên cho các app Flutter đa nền tảng
+		appium driver install --source=npm appium-flutter-driver
+	- Cài đặt UiAutomator2 cho Android : 
+		appium driver install uiautomator2
+	- Cài đặt XCUITest cho iOS : 
+		appium driver install xcuitest
+
+3. Kiểm tra các driver đã cài đặt : 
+	appium driver list --installed
+
+4. Liệt kê các driver khả dụng : 
+	appium driver list
+
+
+5. Các lệnh cài plugin : 
+	- Plugin images cho phép so sánh giao diện đồ họa hoặc kiểm thử giao diện người dùng thông qua ảnh chụp màn hình: 
+		appium plugin install images
+
+	- Plugin appium-wait-plugin giúp tối ưu hóa và điều chỉnh thời gian chờ, đảm bảo kiểm thử không bị gián đoạn do các hành động chậm trễ
+		appium plugin install --source=npm appium-wait-plugin
+
+	- Plugin appium-device-farm hỗ trợ việc quản lý thiết bị kiểm thử từ xa.
+		appium plugin install  --source=npm appium-device-farm
+
+	- Thực hiện các cử chỉ cơ bản bằng W3C Actions (Swipe, Tab,...)
+		appium plugin install  --source=npm appium-gestures-plugin
+
+6. Liệt kê các plugin khả dụng : 
+	appium plugin list
+
+7. Cách sử dụng plugin trong Appium Server : 
+	appium --use-plugins=element-wait,gestures,devices-farm,images

@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression Test Customer" verbose="1">
+    <test name="AddNewCustomer">
+        <classes>
+            <class name="com.anhtester.firstpackage.FirstClass"></class>
+            <class name="com.anhtester.firstpackage.SecondClass"></class>
+        </classes>
+    </test>
+    <test name="SearchCustomer">
+        <classes>
+            <class name="com.anhtester.firstpackage.FirstClass"/>
+            <class name="com.anhtester.firstpackage.SecondClass"/>
+        </classes>
+    </test>
+</suite>
